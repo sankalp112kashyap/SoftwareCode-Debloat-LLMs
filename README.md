@@ -55,6 +55,18 @@ To process a single Python file:
 python main.py --code_file path/to/bloated_code.py --llm_model claude-3-7-sonnet
 ```
 
+To specify which prompt to use (default is prompt "1"):
+
+```bash
+python main.py --code_file path/to/bloated_code.py --llm_model claude-3-7-sonnet --prompt 1
+```
+
+To use a custom prompt:
+
+```bash
+python main.py --code_file path/to/bloated_code.py --llm_model claude-3-7-sonnet --custom_prompt "Your custom prompt here"
+```
+
 To export the optimized code to a different file instead of replacing the original:
 
 ```bash
@@ -87,6 +99,35 @@ For processing multiple files at once:
    ```bash
    python batch_processor.py process --csv files_to_process.csv --llm_model gpt-4o --export_dir optimized_code/
    ```
+
+### Available Prompts
+
+The tool comes with predefined prompts that can be selected using the `--prompt` flag:
+
+- `1` (Default): Comprehensive prompt focused on maintaining functional correctness while removing bloat
+- `2`: Minimal prompt for basic debloating
+
+Full descriptions of each prompt:
+
+#### Prompt 1
+```
+Goal*
+You are an experienced software engineer. Please debloat the code in this file while maintaining its functional correctness. Simplify logic, remove redundancies, and optimize for readability and maintainability without introducing new bugs.
+
+IMPORTANT 
+1. All rewritten code must remain within the file it originated from.  
+2. No new files or services may be introduced as part of the solution.  
+3. Adding helper methods within the file is allowed but must not break functional correctness.  
+4. Do not modify OR remove comments, as they do not count as code.  Imports also do not count as code.
+
+Context
+Software bloat refers to unnecessary or inefficient CODE that increases a program's size or reduces its performance without contributing meaningful functionality.
+```
+
+#### Prompt 2
+```
+Debloat this file while maintaining functional correctness
+```
 
 ## Project Structure
 
