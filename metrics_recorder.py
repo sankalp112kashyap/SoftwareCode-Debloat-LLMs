@@ -34,7 +34,7 @@ class MetricsRecorder:
                     df = pd.read_excel(self.excel_path)
                     # Check if it has all required columns
                     required_columns = [
-                        'Timestamp', 'File Name', 'LLM Model',
+                        'Timestamp', 'File Name', 'LLM Model', 'Prompt',
                         'LOC Before', 'LOC After', 'LOC Reduction (%)'
                     ]
                     
@@ -56,7 +56,7 @@ class MetricsRecorder:
         try:
             # Create a DataFrame with the correct columns
             df = pd.DataFrame(columns=[
-                'Timestamp', 'File Name', 'LLM Model',
+                'Timestamp', 'File Name', 'LLM Model', 'Prompt',
                 'LOC Before', 'LOC After', 'LOC Reduction (%)'
             ])
             
@@ -67,8 +67,8 @@ class MetricsRecorder:
             logger.error(f"Error creating Excel file: {str(e)}")
             raise
     
-    def record_metrics(self, file_name, llm_model, 
-                      loc_before, loc_after, loc_reduction_percentage):
+    def record_metrics(self, file_name, llm_model, loc_before, loc_after, 
+                      loc_reduction_percentage, prompt_text):
         """
         Record metrics to the Excel file.
         
@@ -78,6 +78,7 @@ class MetricsRecorder:
             loc_before: Lines of code before optimization
             loc_after: Lines of code after optimization
             loc_reduction_percentage: Percentage reduction in lines of code
+            prompt_text: Full prompt text used
         """
         try:
             # Create a new data row
@@ -85,6 +86,7 @@ class MetricsRecorder:
                 'Timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 'File Name': os.path.basename(file_name),
                 'LLM Model': llm_model,
+                'Prompt': prompt_text,
                 'LOC Before': loc_before,
                 'LOC After': loc_after,
                 'LOC Reduction (%)': round(loc_reduction_percentage, 2)
