@@ -151,7 +151,7 @@ class LLMHandler:
             }
             
             payload = {
-                "model": "deepseek-code-r1",
+                "model": "deepseek-coder",
                 "messages": [
                     {"role": "user", "content": prompt}
                 ],
