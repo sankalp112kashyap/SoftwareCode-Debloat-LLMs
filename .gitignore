@@ -44,6 +44,7 @@ code_backups/
 bloat_removal_results.xlsx
 *.xlsx
 *.csv
+!ECS 260 Tracking - Sheet1.csv
 !sample_batch.csv
 
 # Generated reports and data
