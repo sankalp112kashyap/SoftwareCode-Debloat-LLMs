@@ -87,7 +87,7 @@ def main():
     batch_parser.add_argument('--csv', type=str, required=True, 
                              help='Path to CSV file with code file paths')
     batch_parser.add_argument('--llm_model', type=str, required=True,
-                            choices=['claude-3-7-sonnet', 'gemini-2-0-flash', 'gpt-4o', 'deepseek-r1'],
+                            choices=['claude-3-5-sonnet', 'gemini-2-0-flash', 'gpt-4o', 'deepseek-r1'],
                             help='LLM model to use')
     batch_parser.add_argument('--output_excel', type=str, default='bloat_removal_results.xlsx',
                             help='Path to output Excel file')

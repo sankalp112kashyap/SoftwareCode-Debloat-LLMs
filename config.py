@@ -26,9 +26,9 @@ Software bloat refers to unnecessary or inefficient CODE that increases a progra
 
 # Model configurations
 MODEL_CONFIGS = {
-    "claude-3-7-sonnet": {
+    "claude-3-5-sonnet": {
         "api_key_env": "ANTHROPIC_API_KEY",
-        "model_id": "claude-3-7-sonnet-20250219",
+        "model_id": "claude-3-5-sonnet-20241022",
         "max_tokens": 4000,
         "temperature": 0.1
     },

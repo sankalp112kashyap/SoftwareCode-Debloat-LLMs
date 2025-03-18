@@ -22,7 +22,7 @@ def load_environment_variables():
             
             # Check if the required API keys are available
             required_api_keys = {
-                'claude-3-7-sonnet': 'ANTHROPIC_API_KEY',
+                'claude-3-5-sonnet': 'ANTHROPIC_API_KEY',
                 'gpt-4o': 'OPENAI_API_KEY',
                 'gemini-2-0-flash': 'GOOGLE_API_KEY',
                 'deepseek-r1': 'DEEPSEEK_API_KEY'

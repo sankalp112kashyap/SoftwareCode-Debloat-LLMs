@@ -53,7 +53,7 @@ class LLMHandler:
         Send code to the specified LLM for optimization.
         
         Args:
-            model_name: Name of the LLM model to use (claude-3-7-sonnet, gemini-2-0-flash, gpt-4o, deepseek-r1)
+            model_name: Name of the LLM model to use (claude-3-5-sonnet, gemini-2-0-flash, gpt-4o, deepseek-r1)
             code: The code to optimize
             prompt: The prompt to send to the LLM
             
@@ -63,7 +63,7 @@ class LLMHandler:
         full_prompt = f"{prompt}\n\n```python\n{code}\n```"
         
         try:
-            if model_name == 'claude-3-7-sonnet':
+            if model_name == 'claude-3-5-sonnet':
                 return self._call_claude(full_prompt)
             elif model_name == 'gemini-2-0-flash':
                 return self._call_gemini(full_prompt)
@@ -90,7 +90,7 @@ class LLMHandler:
             try:
                 # Use the correct model name as shown in your screenshot
                 response = self.clients['claude'].messages.create(
-                    model="claude-3-7-sonnet-20250219",  # Updated to match your screenshot
+                    model="claude-3-5-sonnet-20241022",  # Updated to match your screenshot
                     max_tokens=4000,
                     temperature=0.1,
                     messages=[
