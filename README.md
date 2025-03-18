@@ -14,7 +14,7 @@ Software bloat refers to unnecessary or inefficient code that increases a progra
 ## Features
 
 - Support for multiple LLM APIs:
-  - Claude 3.7 Sonnet (Anthropic)
+  - Claude 3.5 Sonnet (Anthropic)
   - GPT-4o (OpenAI)
   - Gemini 2.0 Flash (Google)
   - DeepSeek R1
@@ -52,29 +52,29 @@ Software bloat refers to unnecessary or inefficient code that increases a progra
 To process a single Python file:
 
 ```bash
-python main.py --code_file path/to/bloated_code.py --llm_model claude-3-7-sonnet
+python main.py --code_file path/to/bloated_code.py --llm_model claude-3-5-sonnet
 ```
 
 To specify which prompt to use (default is prompt "1"):
 
 ```bash
-python main.py --code_file path/to/bloated_code.py --llm_model claude-3-7-sonnet --prompt 1
+python main.py --code_file path/to/bloated_code.py --llm_model claude-3-5-sonnet --prompt 1
 ```
 
 To use a custom prompt:
 
 ```bash
-python main.py --code_file path/to/bloated_code.py --llm_model claude-3-7-sonnet --custom_prompt "Your custom prompt here"
+python main.py --code_file path/to/bloated_code.py --llm_model claude-3-5-sonnet --custom_prompt "Your custom prompt here"
 ```
 
 To export the optimized code to a different file instead of replacing the original:
 
 ```bash
-python main.py --code_file path/to/bloated_code.py --llm_model claude-3-7-sonnet --export_path path/to/optimized_code.py
+python main.py --code_file path/to/bloated_code.py --llm_model claude-3-5-sonnet --export_path path/to/optimized_code.py
 ```
 
 Available options for `--llm_model`:
-- `claude-3-7-sonnet` (Anthropic)
+- `claude-3-5-sonnet` (Anthropic)
 - `gpt-4o` (OpenAI)
 - `gemini-2-0-flash` (Google)
 - `deepseek-r1` (DeepSeek)
@@ -154,7 +154,7 @@ llm-code-debloat/
 The repository includes a sample bloated code file (`sample/bloated_code.py`) that you can use to test the tool:
 
 ```bash
-python main.py --code_file sample/bloated_code.py --llm_model claude-3-7-sonnet
+python main.py --code_file sample/bloated_code.py --llm_model claude-3-5-sonnet
 ```
 
 ## Metrics Recorded
